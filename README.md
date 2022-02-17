@@ -11,8 +11,8 @@ Application test connect API contact
 
 - [x] SplashScreen
 - [x] MainScreen with list filter Starred and All Contacts
-- [x] Detail contact items
-- [x] Action change state contact Starred and unStarred
+- [x] View detail contact
+- [x] Add/Remove a contact to Favorite
 
 ## Requirement
 Android SDK >= 23
