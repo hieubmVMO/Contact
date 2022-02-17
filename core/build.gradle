@@ -1,0 +1,47 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-parcelize"
+
+apply from: "../builder.gradle"
+
+android {
+    defaultConfig {
+        versionCode 1
+        versionName "1.0.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api(
+        libs.coreKtx,
+        libs.roomRuntime,
+        libs.roomKtx,
+        libs.dagger,
+        libs.gson,
+        libs.retrofit,
+        libs.converterGSON,
+        libs.timber
+    )
+
+    api(libs.loggingInterceptor) {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    kapt(
+        kaptLibs.roomCompiler,
+        kaptLibs.daggerCompiler
+    )
+}

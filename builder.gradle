@@ -1,0 +1,45 @@
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+
+android {
+    compileSdk rootProject.versions.compileSdk
+
+    defaultConfig {
+        minSdk rootProject.versions.minSdk
+        targetSdk rootProject.versions.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+
+        release {
+            debuggable false
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    testImplementation(testLibs.junit)
+    androidTestImplementation(
+        androidTestLibs.junit,
+        androidTestLibs.espresso
+    )
+}

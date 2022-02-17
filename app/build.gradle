@@ -1,0 +1,43 @@
+apply plugin: "com.android.application"
+
+apply from: "../builder.gradle"
+
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    defaultConfig {
+        applicationId "com.hieubm.contact"
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", String.format("\"%s\"", BASE_URL)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":core")
+
+    implementation(
+        libs.appCompat,
+        libs.material,
+        libs.constraintLayout,
+        libs.fragmentKtx,
+        libs.navFragmentKtx,
+        libs.navUiKtx,
+        libs.dagger,
+        libs.coil,
+        libs.roundedImageView
+    )
+
+    kapt(
+        kaptLibs.roomCompiler,
+        kaptLibs.daggerCompiler
+    )
+}
