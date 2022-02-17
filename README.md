@@ -15,7 +15,7 @@ Application test connect API contact
 - [x] Action change state contact Starred and unStarred
 
 ## Requirement
-Android SDK >= 21
+Android SDK >= 23
 
 ## Copyright & License
 Copyright (c) 2022 Contacts. All rights reserved.
